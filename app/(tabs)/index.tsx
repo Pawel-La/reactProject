@@ -1,75 +1,83 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Button, Image, ScrollView, StyleSheet, Text } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
+    <ScrollView style={styles.mainContainer} contentContainerStyle={styles.mainWrapper}>
+      <ThemedView style={{marginTop: 80, overflow: 'hidden'}}>
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          source={require('@/assets/recruitment_task_assets/logo.png')}
+          style={styles.image}
+          resizeMode="cover"
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
       </ThemedView>
+
+      <ThemedView>
+        <Image
+          source={require('@/assets/recruitment_task_assets/app-icon.png')}
+          style={styles.image}
+          resizeMode="cover"
+        />
+      </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
+        <ThemedText type="title" style={{color: 'white'}}>
+          Welcome to the best<Text numberOfLines={1}> YouTube-based </Text>learning application.
         </ThemedText>
+
+        <Button
+          // onPress={onPressLearnMore}
+          title="Log in as guest"
+          color="#2B2D42"
+          accessibilityLabel="Learn more about this purple button"
+        />
+{/* 
+        <ThemedText type="defaultSemiBold">Log in as guest</ThemedText> */}
+
+        <ThemedView style={styles.innerContainer}>
+          <ThemedText type="small" style={{ color: 'white' }}>By continuing you agree with </ThemedText>
+          <ThemedText>
+            <ThemedText type="small" style={styles.underlinedText}>Terms and Conditions </ThemedText>
+            <ThemedText type="small" style={{ color: 'white' }}>and </ThemedText>
+            <ThemedText type="small" style={styles.underlinedText}>Privacy Policy</ThemedText>
+          </ThemedText>
+        </ThemedView>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  mainContainer: {
+    backgroundColor: '#8D99AE',
+  },
+  mainWrapper: {
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 120,
+    marginHorizontal: 32,
+  },
+  image: {
+    backgroundColor: '#8D99AE'
   },
   stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+    flexDirection: "column",
+    gap: 20,
+    backgroundColor: '#8D99AE',
+    // flex: 1,
+    // alignItems: "center",
+    // marginTop: 80
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  innerContainer: {
+    alignItems: "center",
+    backgroundColor: '#8D99AE',
   },
+  button: {
+
+  },
+  underlinedText: {
+    color: '#2B2D42',
+    textDecorationLine: 'underline'
+  }
 });
