@@ -33,10 +33,76 @@ export default function HomeScreen() {
             </ThemedView>
         </ThemedView>
 
+        <ScrollView 
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.videosScrollable}
+        >
+            <ThemedView style={styles.singleVideo}>
+                <Image
+                    source={require('@/assets/recruitment_task_assets/app-icon.svg')}
+                    style={{width: 180, height: 112, borderRadius: 16}}
+                />
+                <ThemedView style={{width: 180}}>
+                    <ThemedText type='verySmall'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </ThemedText>
+                </ThemedView>
+                
+                <ThemedText style={{marginLeft: "auto", color: "#2B2D42", fontSize: 10, lineHeight: 24}}>
+                    12.08.2024
+                </ThemedText>
+            </ThemedView>
 
-        <ThemedView>
-            111
-        </ThemedView>
+            <ThemedView style={styles.singleVideo}>
+                <Image
+                    source={require('@/assets/recruitment_task_assets/app-icon.svg')}
+                    style={{width: 180, height: 112, borderRadius: 16}}
+                />
+                <ThemedView style={{width: 180}}>
+                    <ThemedText type='verySmall'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </ThemedText>
+                </ThemedView>
+                
+                <ThemedText style={{marginLeft: "auto", color: "#2B2D42", fontSize: 10, lineHeight: 24}}>
+                    12.08.2024
+                </ThemedText>
+            </ThemedView>
+
+            <ThemedView style={styles.singleVideo}>
+                <Image
+                    source={require('@/assets/recruitment_task_assets/app-icon.svg')}
+                    style={{width: 180, height: 112, borderRadius: 16}}
+                />
+                <ThemedView style={{width: 180}}>
+                    <ThemedText type='verySmall'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </ThemedText>
+                </ThemedView>
+                
+                <ThemedText style={{marginLeft: "auto", color: "#2B2D42", fontSize: 10, lineHeight: 24}}>
+                    12.08.2024
+                </ThemedText>
+            </ThemedView>
+
+            <ThemedView style={styles.singleVideo}>
+                <Image
+                    source={require('@/assets/recruitment_task_assets/app-icon.svg')}
+                    style={{width: 180, height: 112, borderRadius: 16}}
+                />
+                <ThemedView style={{width: 180}}>
+                    <ThemedText type='verySmall'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                    </ThemedText>
+                </ThemedView>
+                
+                <ThemedText style={{marginLeft: "auto", color: "#2B2D42", fontSize: 10, lineHeight: 24}}>
+                    12.08.2024
+                </ThemedText>
+            </ThemedView>
+            
+        </ScrollView>
       </ThemedView>
     </ScrollView>
   );
@@ -58,13 +124,24 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
   },
   videos: {
-    backgroundColor: 'red',
     flexDirection: "column",
-    marginVertical: 8
+    marginVertical: 8,
+    gap: 16,
+    borderTopColor: "#2B2D42",
+    borderTopWidth: 2
   },
   videosTopBar: {
     flexDirection: "row",
     marginHorizontal: 24,
-    backgroundColor: "yellow"
+  },
+  videosScrollable: {
+    flexDirection: "row",
+    marginLeft: 24,
+    gap: 18,
+    flexWrap: "nowrap"
+  },
+  singleVideo: {
+    flexDirection: "column",
+    flexGrow: 0
   }
 });

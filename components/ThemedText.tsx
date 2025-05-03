@@ -5,7 +5,7 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'small' | 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link' | 'linkSmall';
+  type?: 'verySmall' | 'small' | 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link' | 'linkSmall';
 };
 
 export function ThemedText({
@@ -21,6 +21,7 @@ export function ThemedText({
     <Text
       style={[
         { color },
+        type === 'verySmall' ? styles.verySmall : undefined,
         type === 'small' ? styles.small : undefined,
         type === 'default' ? styles.default : undefined,
         type === 'title' ? styles.title : undefined,
@@ -36,6 +37,13 @@ export function ThemedText({
 }
 
 const styles = StyleSheet.create({
+  verySmall: {
+    fontSize: 12,
+    lineHeight: 12,
+    color: '#2B2D42',
+    letterSpacing: 1,
+    fontWeight: '500'
+  },
   small: {
     fontSize: 13,
     lineHeight: 16,
