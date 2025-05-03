@@ -26,7 +26,7 @@ export default function LoginScreen() {
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="title" style={{color: 'white'}}>
+        <ThemedText type="title" style={{fontSize: 22, color: 'white'}}>
           Welcome to the best<Text numberOfLines={1}> YouTube-based </Text>learning application.
         </ThemedText>
 
@@ -40,12 +40,12 @@ export default function LoginScreen() {
           <ThemedText type="small" style={{ color: 'white' }}>By continuing you agree with </ThemedText>
           <ThemedText>
             <ExternalLink href="https://reactnative.dev/docs/images">
-              <ThemedText type="link" style={styles.underlinedText}>Terms and Conditions</ThemedText>
+              <ThemedText type="linkSmall">Terms and Conditions</ThemedText>
             </ExternalLink>
             
             <ThemedText type="small" style={{ color: 'white' }}> and </ThemedText>
             <ExternalLink href="https://reactnative.dev/docs/images">
-              <ThemedText type="link" style={styles.underlinedText}>Privacy Policy</ThemedText>
+              <ThemedText type="linkSmall">Privacy Policy</ThemedText>
             </ExternalLink>
             
           </ThemedText>
@@ -80,10 +80,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: '#8D99AE',
   },
-  button: {
-
-  },
-  underlinedText: {
-    textDecorationLine: 'underline'
-  }
 });

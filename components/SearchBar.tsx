@@ -10,14 +10,14 @@ export default function SearchBar({ value, onChangeText, placeholder = 'Search V
       <ThemedView style={styles.searchBar}>
         <Image
           source={require('@/assets/recruitment_task_assets/icons/search-icon.svg')}
-          style={{ width: 18, height: 18, margin: 3 }}
+          style={styles.searchIcon}
         />
         <TextInput
-          style={{ marginVertical: 'auto' }}
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
           placeholderTextColor="#2B2D4299"
+          style={{ marginVertical: 'auto' }}
         />
       </ThemedView>
     </ThemedView>
@@ -25,6 +25,11 @@ export default function SearchBar({ value, onChangeText, placeholder = 'Search V
 }
 
 const styles = StyleSheet.create({
+    searchIcon: {
+        width: 18, 
+        height: 18, 
+        margin: 3
+    },
     borderBox: {
         flex: 1,
         borderColor: "#2B2D42",

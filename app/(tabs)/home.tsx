@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import SearchBar from '@/components/SearchBar';
+import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Image, ScrollView, StyleSheet } from 'react-native';
 
@@ -21,9 +22,18 @@ export default function HomeScreen() {
       </ThemedView>
 
       <ThemedView style={styles.videos}>
-        <ThemedView>
-            111
+        <ThemedView style={styles.videosTopBar}>
+            <ThemedText type="title">
+                React Native
+            </ThemedText>
+            <ThemedView style={{marginLeft: "auto", marginVertical: "auto"}}>
+                <ThemedText type="link">
+                    Show more
+                </ThemedText>
+            </ThemedView>
         </ThemedView>
+
+
         <ThemedView>
             111
         </ThemedView>
@@ -49,8 +59,12 @@ const styles = StyleSheet.create({
   },
   videos: {
     backgroundColor: 'red',
+    flexDirection: "column",
+    marginVertical: 8
+  },
+  videosTopBar: {
     flexDirection: "row",
-    gap: 26,
-    marginTop: 40
+    marginHorizontal: 24,
+    backgroundColor: "yellow"
   }
 });
