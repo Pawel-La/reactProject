@@ -1,9 +1,12 @@
 import { ExternalLink } from '@/components/ExternalLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useRouter } from 'expo-router';
 import { Button, Image, ScrollView, StyleSheet, Text } from 'react-native';
 
-export default function HomeScreen() {
+export default function LoginScreen() {
+  const router = useRouter();
+
   return (
     <ScrollView style={styles.mainContainer} contentContainerStyle={styles.mainWrapper}>
       <ThemedView style={{marginTop: 80, overflow: 'hidden'}}>
@@ -28,13 +31,10 @@ export default function HomeScreen() {
         </ThemedText>
 
         <Button
-          // onPress={onPressLearnMore}
           title="Log in as guest"
           color="#2B2D42"
-          accessibilityLabel="Learn more about this purple button"
+          onPress={() => router.replace('/(tabs)/home')}
         />
-{/* 
-        <ThemedText type="defaultSemiBold">Log in as guest</ThemedText> */}
 
         <ThemedView style={styles.innerContainer}>
           <ThemedText type="small" style={{ color: 'white' }}>By continuing you agree with </ThemedText>
