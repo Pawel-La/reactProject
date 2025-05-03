@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import SearchBar from '@/components/SearchBar';
+import SingleVideo from '@/components/SingleVideo';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Image, ScrollView, StyleSheet } from 'react-native';
@@ -38,70 +39,23 @@ export default function HomeScreen() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.videosScrollable}
         >
-            <ThemedView style={styles.singleVideo}>
-                <Image
-                    source={require('@/assets/recruitment_task_assets/app-icon.svg')}
-                    style={{width: 180, height: 112, borderRadius: 16}}
-                />
-                <ThemedView style={{width: 180}}>
-                    <ThemedText type='verySmall'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                    </ThemedText>
-                </ThemedView>
-                
-                <ThemedText style={{marginLeft: "auto", color: "#2B2D42", fontSize: 10, lineHeight: 24}}>
-                    12.08.2024
-                </ThemedText>
-            </ThemedView>
+            <SingleVideo
+                image={require('@/assets/recruitment_task_assets/app-icon.svg')}
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+                date="12.08.2024"
+            />
 
-            <ThemedView style={styles.singleVideo}>
-                <Image
-                    source={require('@/assets/recruitment_task_assets/app-icon.svg')}
-                    style={{width: 180, height: 112, borderRadius: 16}}
-                />
-                <ThemedView style={{width: 180}}>
-                    <ThemedText type='verySmall'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                    </ThemedText>
-                </ThemedView>
-                
-                <ThemedText style={{marginLeft: "auto", color: "#2B2D42", fontSize: 10, lineHeight: 24}}>
-                    12.08.2024
-                </ThemedText>
-            </ThemedView>
+            <SingleVideo
+                image={require('@/assets/recruitment_task_assets/app-icon.svg')}
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+                date="12.08.2024"
+            /> 
 
-            <ThemedView style={styles.singleVideo}>
-                <Image
-                    source={require('@/assets/recruitment_task_assets/app-icon.svg')}
-                    style={{width: 180, height: 112, borderRadius: 16}}
-                />
-                <ThemedView style={{width: 180}}>
-                    <ThemedText type='verySmall'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                    </ThemedText>
-                </ThemedView>
-                
-                <ThemedText style={{marginLeft: "auto", color: "#2B2D42", fontSize: 10, lineHeight: 24}}>
-                    12.08.2024
-                </ThemedText>
-            </ThemedView>
-
-            <ThemedView style={styles.singleVideo}>
-                <Image
-                    source={require('@/assets/recruitment_task_assets/app-icon.svg')}
-                    style={{width: 180, height: 112, borderRadius: 16}}
-                />
-                <ThemedView style={{width: 180}}>
-                    <ThemedText type='verySmall'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-                    </ThemedText>
-                </ThemedView>
-                
-                <ThemedText style={{marginLeft: "auto", color: "#2B2D42", fontSize: 10, lineHeight: 24}}>
-                    12.08.2024
-                </ThemedText>
-            </ThemedView>
-            
+            <SingleVideo
+                image={require('@/assets/recruitment_task_assets/app-icon.svg')}
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+                date="12.08.2024"
+            />
         </ScrollView>
       </ThemedView>
     </ScrollView>
@@ -139,9 +93,5 @@ const styles = StyleSheet.create({
     marginLeft: 24,
     gap: 18,
     flexWrap: "nowrap"
-  },
-  singleVideo: {
-    flexDirection: "column",
-    flexGrow: 0
   }
 });
