@@ -1,3 +1,4 @@
+import { ExternalLink } from '@/components/ExternalLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Button, Image, ScrollView, StyleSheet, Text } from 'react-native';
@@ -38,9 +39,15 @@ export default function HomeScreen() {
         <ThemedView style={styles.innerContainer}>
           <ThemedText type="small" style={{ color: 'white' }}>By continuing you agree with </ThemedText>
           <ThemedText>
-            <ThemedText type="small" style={styles.underlinedText}>Terms and Conditions </ThemedText>
-            <ThemedText type="small" style={{ color: 'white' }}>and </ThemedText>
-            <ThemedText type="small" style={styles.underlinedText}>Privacy Policy</ThemedText>
+            <ExternalLink href="https://reactnative.dev/docs/images">
+              <ThemedText type="link" style={styles.underlinedText}>Terms and Conditions</ThemedText>
+            </ExternalLink>
+            
+            <ThemedText type="small" style={{ color: 'white' }}> and </ThemedText>
+            <ExternalLink href="https://reactnative.dev/docs/images">
+              <ThemedText type="link" style={styles.underlinedText}>Privacy Policy</ThemedText>
+            </ExternalLink>
+            
           </ThemedText>
         </ThemedView>
       </ThemedView>
@@ -77,7 +84,6 @@ const styles = StyleSheet.create({
 
   },
   underlinedText: {
-    color: '#2B2D42',
     textDecorationLine: 'underline'
   }
 });
