@@ -12,21 +12,25 @@ export default function SearchScreen() {
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
       description: 'Movie 1 Description Movie 1 Description Movie 1 Description',
       date: '12.08.2024',
+      channelName: 'Channel 1'
     },
     {
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
       description: 'Movie 2 Description',
       date: '13.08.2024',
+      channelName: 'Channel 2'
     },
     {
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
       description: 'Movie 3 Description',
       date: '14.08.2024',
+      channelName: 'Channel 3'
     },
     {
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
       description: 'Movie 4 Description',
       date: '15.08.2024',
+      channelName: 'Channel 4'
     },
   ];
 
@@ -51,7 +55,9 @@ export default function SearchScreen() {
             thumbnail={video.thumbnail}
             description={video.description}
             date={video.date}
+            title={video.channelName}
             containerStyle={{gap: 16}}
+            titleStyle={{marginLeft: 8}}
             thumbnailStyle={{width: "auto"}}
             descriptionStyle={{marginLeft: 8}}
         />
