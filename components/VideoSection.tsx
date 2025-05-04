@@ -5,6 +5,7 @@ import React from 'react';
 import { ImageSourcePropType, ScrollView, StyleSheet, ViewStyle } from 'react-native';
 
 export interface Video {
+  id: string;
   thumbnail: ImageSourcePropType;
   description: string;
   date: string;
@@ -37,6 +38,7 @@ export function VideoSection({ title, videos, containerStyle }: VideoSectionProp
         >
           {videos.map((video, _index) => (
             <SingleVideo
+                id={video.id}
                 thumbnail={video.thumbnail}
                 description={video.description}
                 date={video.date}

@@ -1,9 +1,11 @@
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { Image, ImageSourcePropType, ImageStyle, StyleSheet, ViewStyle } from 'react-native';
+import { Image, ImageSourcePropType, ImageStyle, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 
 interface SingleVideoProps {
+    id: string;
     thumbnail: ImageSourcePropType;
     description: string;
     date: string;
@@ -14,39 +16,48 @@ interface SingleVideoProps {
     descriptionStyle?: ViewStyle;
 }
 
-export function SingleVideo({ thumbnail, description, date, title, containerStyle, titleStyle, thumbnailStyle, descriptionStyle }: SingleVideoProps) {
+export function SingleVideo({ id, thumbnail, description, date, title, containerStyle, titleStyle, thumbnailStyle, descriptionStyle }: SingleVideoProps) {
+  const router = useRouter();
+
+  const handlePress = () => {
+    router.push(`/videos/${id}`);
+  };
+  
   return (
-    <ThemedView style={[styles.mainContainer, containerStyle]}>
-      <Image
-        source={thumbnail}
-        style={[styles.thumbnail, thumbnailStyle]}
-      />
+    <TouchableOpacity onPress={handlePress}>
+        <ThemedView style={[styles.mainContainer, containerStyle]}>
+            <Image
+              source={thumbnail}
+              style={[styles.thumbnail, thumbnailStyle]}
+            />
 
-      {title && (
-        <ThemedView style={titleStyle}>
-          <ThemedText style={styles.title}>
-            {title}
-          </ThemedText>
+            {title && (
+              <ThemedView style={titleStyle}>
+                <ThemedText style={styles.title}>
+                  {title}
+                </ThemedText>
+              </ThemedView>
+            )}
+
+            <ThemedView style={descriptionStyle}>
+              <ThemedText type="verySmall">
+                {description}
+              </ThemedText>
+            </ThemedView>
+
+            <ThemedText
+              style={{
+                marginLeft: 'auto',
+                color: '#2B2D42',
+                fontSize: 10,
+                lineHeight: 24,
+              }}
+            >
+              {date}
+            </ThemedText>
         </ThemedView>
-      )}
-
-      <ThemedView style={descriptionStyle}>
-        <ThemedText type="verySmall">
-          {description}
-        </ThemedText>
-      </ThemedView>
-
-      <ThemedText
-        style={{
-          marginLeft: 'auto',
-          color: '#2B2D42',
-          fontSize: 10,
-          lineHeight: 24,
-        }}
-      >
-        {date}
-      </ThemedText>
-    </ThemedView>
+    </TouchableOpacity>
+    
   );
 }
 

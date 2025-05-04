@@ -9,24 +9,28 @@ export default function SearchScreen() {
 
   const videos = [
     {
+      id: "1",
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
       description: 'Movie 1 Description Movie 1 Description Movie 1 Description',
       date: '12.08.2024',
       channelName: 'Channel 1'
     },
     {
+      id: "2",
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
       description: 'Movie 2 Description',
       date: '13.08.2024',
       channelName: 'Channel 2'
     },
     {
+      id: "3",
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
       description: 'Movie 3 Description',
       date: '14.08.2024',
       channelName: 'Channel 3'
     },
     {
+      id: "4",
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
       description: 'Movie 4 Description',
       date: '15.08.2024',
@@ -52,6 +56,7 @@ export default function SearchScreen() {
 
       {videos.map((video, _index) => (
         <SingleVideo
+            id={video.id}
             thumbnail={video.thumbnail}
             description={video.description}
             date={video.date}
