@@ -44,6 +44,18 @@ export function VideoDisplay() {
           source={require('@/assets/recruitment_task_assets/icons/airplay-icon.svg')} 
         />
       </View>
+
+      <View style={{flexDirection: "row", alignItems: "center", gap: 8, marginLeft: 16}}>
+        
+      </View>
+
+      <View style={{flexDirection: "row", gap: 8, marginLeft: 16}}>
+        <VideoButtonView 
+          onPress={togglePlayPause}
+          buttonStyle={{marginLeft: "auto"}}
+          source={require('@/assets/recruitment_task_assets/icons/fullscreen-icon.svg')} 
+        />
+      </View>
     </ThemedView> 
   )
 }
