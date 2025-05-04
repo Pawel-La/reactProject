@@ -2,9 +2,9 @@ import { ThemedView } from '@/components/ThemedView';
 import React from 'react';
 import { Image, StyleSheet, TextInput, TextInputProps } from 'react-native';
 
-interface SearchBarProps extends Pick<TextInputProps, 'value' | 'onChangeText' | 'placeholder'> {}
+interface SearchBarProps extends Pick<TextInputProps, 'value' | 'onChangeText' | 'onBlur' |'placeholder'> {}
 
-export default function SearchBar({ value, onChangeText, placeholder = 'Search Videos' }: SearchBarProps) {
+export default function SearchBar({ value, onChangeText, onBlur, placeholder = 'Search Videos' }: SearchBarProps) {
   return (
     <ThemedView style={styles.borderBox}>
       <ThemedView style={styles.searchBar}>
@@ -15,6 +15,7 @@ export default function SearchBar({ value, onChangeText, placeholder = 'Search V
         <TextInput
           value={value}
           onChangeText={onChangeText}
+          onBlur={onBlur}
           placeholder={placeholder}
           placeholderTextColor="#2B2D4299"
           style={{ marginVertical: 'auto' }}

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import SearchBar from '@/components/SearchBar';
 import { ThemedView } from '@/components/ThemedView';
 import { VideoSection } from '@/components/VideoSection';
+import { useRouter } from 'expo-router';
 import { Image, ScrollView, StyleSheet } from 'react-native';
 
 export default function HomeScreen() {
@@ -29,14 +30,26 @@ export default function HomeScreen() {
     },
   ];
 
+  const router = useRouter();
+
+  const handlePress = () => {
+    searchText &&
+      router.push({
+        pathname: '/search',
+        params: { search_query: searchText },
+      });
+  };
+
   return (
     <ScrollView style={styles.mainContainer} contentContainerStyle={styles.mainWrapper}>
       <ThemedView style={styles.topBar}>
         <SearchBar
             value={searchText}
             onChangeText={setSearchText}
+            onBlur={handlePress}
             placeholder="Search for videos"
         />
+        
         <Image
             source={require('@/assets/recruitment_task_assets/icons/settings-icon.svg')}
         />

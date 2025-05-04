@@ -1,8 +1,9 @@
 import { SingleVideo } from '@/components/SingleVideo';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { ImageSourcePropType, ScrollView, StyleSheet, ViewStyle } from 'react-native';
+import { ImageSourcePropType, ScrollView, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 
 export interface Video {
   id: string;
@@ -18,17 +19,27 @@ export interface VideoSectionProps {
 }
 
 export function VideoSection({ title, videos, containerStyle }: VideoSectionProps) {
+  const router = useRouter();
+  
+  const handlePress = () => {
+    router.push({
+      pathname: '/search',
+      params: { search_query: title },
+    });
+  };
+
   return (
     <ThemedView style={[styles.mainContainer, containerStyle]}>
         <ThemedView style={styles.topBar}>
             <ThemedText type="title">
                 {title}
             </ThemedText>
-            <ThemedView style={{marginLeft: "auto", marginVertical: "auto"}}>
-                <ThemedText type="link">
-                    Show more
-                </ThemedText>
-            </ThemedView>
+            
+            <TouchableOpacity onPress={handlePress} style={{marginLeft: "auto", marginVertical: "auto"}}>
+              <ThemedText type="link">
+                  Show more
+              </ThemedText>
+            </TouchableOpacity>
         </ThemedView>
 
         <ScrollView 
