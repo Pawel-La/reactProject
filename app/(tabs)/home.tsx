@@ -40,13 +40,26 @@ export default function HomeScreen() {
       </ThemedView>
 
       <VideoSection
-        title="Top Picks for You"
+        title="React Native"
         videos={videos}
       />
 
       <VideoSection
-        title="Nice to have"
+        title="React"
         videos={videos}
+        containerStyle={styles.sectionBorder}
+      />
+
+      <VideoSection
+        title="Typescript"
+        videos={videos}
+        containerStyle={styles.sectionBorder}
+      />
+
+      <VideoSection
+        title="Javascript"
+        videos={videos}
+        containerStyle={styles.sectionBorder}
       />
     </ScrollView>
   );
@@ -67,4 +80,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 24,
   },
+  sectionBorder: {
+    borderTopWidth: 2,
+    borderTopColor: '#2B2D42',
+  }
 });

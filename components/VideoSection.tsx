@@ -51,9 +51,7 @@ const styles = StyleSheet.create({
     mainContainer: {
       flexDirection: "column",
       marginVertical: 8,
-      gap: 16,
-      borderTopColor: "#2B2D42",
-      borderTopWidth: 2
+      gap: 16
     },
     topBar: {
       flexDirection: "row",
