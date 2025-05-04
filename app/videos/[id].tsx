@@ -1,13 +1,67 @@
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useLocalSearchParams } from 'expo-router';
-import { Image, StyleSheet } from 'react-native';
+import { useRef, useState } from 'react';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import Video, { VideoRef } from 'react-native-video';
 
 export default function VideoDetails() {
   const { id } = useLocalSearchParams();
 
+  const videoRef = useRef<VideoRef>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause(); // Pause the video
+      } else {
+        videoRef.current.resume(); // Play the video
+      }
+      setIsPlaying(!isPlaying); // Toggle the play/pause state
+    }
+  };
+
   return (
     <ThemedView style={styles.mainContainer}>
+      <ThemedView style={styles.videoWrapper}>
+        <Video
+          source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }}
+          ref={videoRef}              
+          onError={() => {console.log("error while loading the video")}}               
+          style={styles.video}
+        />
+
+        <View style={{flexDirection: "row", gap: 8, marginLeft: 16}}>
+          <TouchableOpacity onPress={togglePlayPause}>
+            <ThemedView style={{backgroundColor: "#00000040", padding: 6, borderRadius: 16}}>
+              <Image
+                style={{tintColor:"white", width: 20, height: 20}}
+                source={require('@/assets/recruitment_task_assets/icons/leftarrow-icon.svg')}
+              />
+            </ThemedView>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={togglePlayPause} style={{marginLeft: "auto"}}>
+            <ThemedView style={{backgroundColor: "#00000040", padding: 6, borderRadius: 16}}>
+              <Image
+                style={{tintColor:"white", width: 20, height: 20}}
+                source={require('@/assets/recruitment_task_assets/icons/volume-icon.svg')}
+              />
+            </ThemedView>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={togglePlayPause} style={{}}>
+          <ThemedView style={{backgroundColor: "#00000040", padding: 6, borderRadius: 16}}>
+              <Image
+                style={{tintColor:"white", width: 20, height: 20}}
+                source={require('@/assets/recruitment_task_assets/icons/airplay-icon.svg')}
+              />
+            </ThemedView>
+          </TouchableOpacity>
+        </View>
+      </ThemedView> 
+
       <ThemedView style={{gap: 10}}>
         <ThemedText numberOfLines={1} style={{marginHorizontal: 16, fontSize: 18, lineHeight: 24, fontWeight: "600", color: "#2B2D42"}}>
           bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -94,5 +148,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: "column",
     flex: 1,
+  },
+  videoWrapper: {
+    width: '100%',
+    height: 215,
+    marginBottom: 20,
+    paddingTop: 18,
+    justifyContent: "space-between",
+    flexDirection: "column"
+  },
+  video: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   }
 });
