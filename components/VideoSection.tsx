@@ -18,7 +18,7 @@ export interface VideoSectionProps {
 
 export function VideoSection({ title, videos, containerStyle }: VideoSectionProps) {
   return (
-    <ThemedView style={styles.mainContainer}>
+    <ThemedView style={[styles.mainContainer, containerStyle]}>
         <ThemedView style={styles.topBar}>
             <ThemedText type="title">
                 {title}

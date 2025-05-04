@@ -12,7 +12,7 @@ interface SingleVideoProps {
 
 export function SingleVideo({ image, description, date, containerStyle }: SingleVideoProps) {
   return (
-    <ThemedView style={[{ flexDirection: 'column', gap: 8 }, containerStyle]}>
+    <ThemedView style={[styles.mainContainer, containerStyle]}>
       <Image
         source={image}
         style={{ width: 180, height: 112, borderRadius: 16 }}
@@ -39,8 +39,9 @@ export function SingleVideo({ image, description, date, containerStyle }: Single
 }
 
 const styles = StyleSheet.create({
-    singleVideo: {
+    mainContainer: {
         flexDirection: "column",
-        flexGrow: 0
+        flexGrow: 0,
+        gap: 2
     }
 });

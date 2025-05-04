@@ -67,21 +67,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 24,
   },
-  videos: {
-    flexDirection: "column",
-    marginVertical: 8,
-    gap: 16,
-    borderTopColor: "#2B2D42",
-    borderTopWidth: 2
-  },
-  videosTopBar: {
-    flexDirection: "row",
-    marginHorizontal: 24,
-  },
-  videosScrollable: {
-    flexDirection: "row",
-    marginLeft: 24,
-    gap: 18,
-    flexWrap: "nowrap"
-  }
 });
