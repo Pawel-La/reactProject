@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import SearchBar from '@/components/SearchBar';
 import { SingleVideo } from '@/components/SingleVideo';
+import { useLocalSearchParams } from 'expo-router';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 
 export default function SearchScreen() {
+  const { search_query } = useLocalSearchParams();
   const [searchText, setSearchText] = useState(''); 
 
   const videos = [
     {
       id: "1",
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
-      description: 'Movie 1 Description Movie 1 Description Movie 1 Description',
+      description: 'Movie 1 Description Movie 1 Description Movie 1 Description Movie 1 Description Movie 1 Description Movie 1 Description Movie 1 Description Movie 1 Description Movie 1 Description',
       date: '12.08.2024',
       channelName: 'Channel 1'
     },
@@ -37,6 +39,10 @@ export default function SearchScreen() {
       channelName: 'Channel 4'
     },
   ];
+
+  useEffect(() => {
+    setSearchText(typeof search_query === 'string' ? search_query : '');
+  }, [search_query]);
 
   return (
     <ScrollView style={styles.mainContainer} contentContainerStyle={styles.mainWrapper}>

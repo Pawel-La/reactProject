@@ -40,7 +40,7 @@ export function SingleVideo({ id, thumbnail, description, date, title, container
             )}
 
             <ThemedView style={descriptionStyle}>
-              <ThemedText type="verySmall">
+              <ThemedText type="verySmall" numberOfLines={2} ellipsizeMode="tail">
                 {description}
               </ThemedText>
             </ThemedView>
