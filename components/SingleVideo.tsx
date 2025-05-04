@@ -1,24 +1,26 @@
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import React from 'react';
-import { Image, ImageSourcePropType, StyleSheet, ViewStyle } from 'react-native';
+import { Image, ImageSourcePropType, ImageStyle, StyleSheet, ViewStyle } from 'react-native';
 
 interface SingleVideoProps {
-    image: ImageSourcePropType;
+    thumbnail: ImageSourcePropType;
     description: string;
     date: string;
     containerStyle?: ViewStyle;
+    thumbnailStyle?: ImageStyle;
+    descriptionStyle?: ViewStyle;
 }
 
-export function SingleVideo({ image, description, date, containerStyle }: SingleVideoProps) {
+export function SingleVideo({ thumbnail, description, date, containerStyle, thumbnailStyle, descriptionStyle }: SingleVideoProps) {
   return (
     <ThemedView style={[styles.mainContainer, containerStyle]}>
       <Image
-        source={image}
-        style={{ width: 180, height: 112, borderRadius: 16 }}
+        source={thumbnail}
+        style={[styles.thumbnail, thumbnailStyle]}
       />
 
-      <ThemedView style={{ width: 180 }}>
+      <ThemedView style={descriptionStyle}>
         <ThemedText type="verySmall">
           {description}
         </ThemedText>
@@ -43,5 +45,8 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         flexGrow: 0,
         gap: 2
+    },
+    thumbnail: {
+        borderRadius: 16 
     }
 });

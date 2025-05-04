@@ -37,9 +37,11 @@ export function VideoSection({ title, videos, containerStyle }: VideoSectionProp
         >
           {videos.map((video, _index) => (
             <SingleVideo
-                image={video.thumbnail}
+                thumbnail={video.thumbnail}
                 description={video.description}
                 date={video.date}
+                thumbnailStyle={{width: 180, height: 112}}
+                descriptionStyle={{width: 180}}
             />
           ))}
         </ScrollView>

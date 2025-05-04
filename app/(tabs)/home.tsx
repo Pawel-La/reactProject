@@ -11,7 +11,7 @@ export default function HomeScreen() {
   const videos = [
     {
       thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
-      description: 'Movie 1 Description',
+      description: 'Movie 1 Description Movie 1 Description Movie 1 Description',
       date: '12.08.2024',
     },
     {
