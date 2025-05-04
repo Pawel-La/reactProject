@@ -1,8 +1,9 @@
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { VideoButtonView } from '@/components/VideoButton';
 import { useLocalSearchParams } from 'expo-router';
 import { useRef, useState } from 'react';
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import Video, { VideoRef } from 'react-native-video';
 
 export default function VideoDetails() {
@@ -33,32 +34,21 @@ export default function VideoDetails() {
         />
 
         <View style={{flexDirection: "row", gap: 8, marginLeft: 16}}>
-          <TouchableOpacity onPress={togglePlayPause}>
-            <ThemedView style={{backgroundColor: "#00000040", padding: 6, borderRadius: 16}}>
-              <Image
-                style={{tintColor:"white", width: 20, height: 20}}
-                source={require('@/assets/recruitment_task_assets/icons/leftarrow-icon.svg')}
-              />
-            </ThemedView>
-          </TouchableOpacity>
+          <VideoButtonView 
+            onPress={togglePlayPause}
+            source={require('@/assets/recruitment_task_assets/icons/leftarrow-icon.svg')} 
+          />
 
-          <TouchableOpacity onPress={togglePlayPause} style={{marginLeft: "auto"}}>
-            <ThemedView style={{backgroundColor: "#00000040", padding: 6, borderRadius: 16}}>
-              <Image
-                style={{tintColor:"white", width: 20, height: 20}}
-                source={require('@/assets/recruitment_task_assets/icons/volume-icon.svg')}
-              />
-            </ThemedView>
-          </TouchableOpacity>
+          <VideoButtonView 
+            onPress={togglePlayPause}
+            buttonStyle={{marginLeft: "auto"}}
+            source={require('@/assets/recruitment_task_assets/icons/volume-icon.svg')} 
+          />
 
-          <TouchableOpacity onPress={togglePlayPause} style={{}}>
-          <ThemedView style={{backgroundColor: "#00000040", padding: 6, borderRadius: 16}}>
-              <Image
-                style={{tintColor:"white", width: 20, height: 20}}
-                source={require('@/assets/recruitment_task_assets/icons/airplay-icon.svg')}
-              />
-            </ThemedView>
-          </TouchableOpacity>
+          <VideoButtonView 
+            onPress={togglePlayPause}
+            source={require('@/assets/recruitment_task_assets/icons/airplay-icon.svg')} 
+          />
         </View>
       </ThemedView> 
 
