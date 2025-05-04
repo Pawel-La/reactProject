@@ -1,0 +1,72 @@
+import { SingleVideo } from '@/components/SingleVideo';
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
+import React from 'react';
+import { ImageSourcePropType, ScrollView, StyleSheet, ViewStyle } from 'react-native';
+
+export interface Video {
+  thumbnail: ImageSourcePropType;
+  description: string;
+  date: string;
+}
+
+export interface VideoSectionProps {
+  title: string;
+  videos: Video[];
+  containerStyle?: ViewStyle;
+}
+
+export function VideoSection({ title, videos, containerStyle }: VideoSectionProps) {
+  return (
+    <ThemedView style={styles.mainContainer}>
+        <ThemedView style={styles.topBar}>
+            <ThemedText type="title">
+                {title}
+            </ThemedText>
+            <ThemedView style={{marginLeft: "auto", marginVertical: "auto"}}>
+                <ThemedText type="link">
+                    Show more
+                </ThemedText>
+            </ThemedView>
+        </ThemedView>
+
+        <ScrollView 
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.scrollable}
+        >
+          {videos.map((video, _index) => (
+            <SingleVideo
+                image={video.thumbnail}
+                description={video.description}
+                date={video.date}
+            />
+          ))}
+        </ScrollView>
+    </ThemedView>
+  );
+}
+
+const styles = StyleSheet.create({
+    mainContainer: {
+      flexDirection: "column",
+      marginVertical: 8,
+      gap: 16,
+      borderTopColor: "#2B2D42",
+      borderTopWidth: 2
+    },
+    topBar: {
+      flexDirection: "row",
+      marginHorizontal: 24,
+    },
+    scrollable: {
+      flexDirection: "row",
+      marginLeft: 24,
+      gap: 18,
+      flexWrap: "nowrap"
+    },
+    singleVideo: {
+      flexDirection: "column",
+      flexGrow: 0
+    }
+});

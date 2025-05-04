@@ -1,13 +1,30 @@
 import React, { useState } from 'react';
 
 import SearchBar from '@/components/SearchBar';
-import SingleVideo from '@/components/SingleVideo';
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { VideoSection } from '@/components/VideoSection';
 import { Image, ScrollView, StyleSheet } from 'react-native';
 
 export default function HomeScreen() {
   const [searchText, setSearchText] = useState(''); 
+
+  const videos = [
+    {
+      thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
+      description: 'Movie 1 Description',
+      date: '12.08.2024',
+    },
+    {
+      thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
+      description: 'Movie 2 Description',
+      date: '13.08.2024',
+    },
+    {
+      thumbnail: require('@/assets/recruitment_task_assets/app-icon.svg'),
+      description: 'Movie 3 Description',
+      date: '14.08.2024',
+    },
+  ];
 
   return (
     <ScrollView style={styles.mainContainer} contentContainerStyle={styles.mainWrapper}>
@@ -22,42 +39,15 @@ export default function HomeScreen() {
         />
       </ThemedView>
 
-      <ThemedView style={styles.videos}>
-        <ThemedView style={styles.videosTopBar}>
-            <ThemedText type="title">
-                React Native
-            </ThemedText>
-            <ThemedView style={{marginLeft: "auto", marginVertical: "auto"}}>
-                <ThemedText type="link">
-                    Show more
-                </ThemedText>
-            </ThemedView>
-        </ThemedView>
+      <VideoSection
+        title="Top Picks for You"
+        videos={videos}
+      />
 
-        <ScrollView 
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.videosScrollable}
-        >
-            <SingleVideo
-                image={require('@/assets/recruitment_task_assets/app-icon.svg')}
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                date="12.08.2024"
-            />
-
-            <SingleVideo
-                image={require('@/assets/recruitment_task_assets/app-icon.svg')}
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                date="12.08.2024"
-            /> 
-
-            <SingleVideo
-                image={require('@/assets/recruitment_task_assets/app-icon.svg')}
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                date="12.08.2024"
-            />
-        </ScrollView>
-      </ThemedView>
+      <VideoSection
+        title="Nice to have"
+        videos={videos}
+      />
     </ScrollView>
   );
 }

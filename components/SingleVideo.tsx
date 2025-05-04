@@ -10,7 +10,7 @@ interface SingleVideoProps {
     containerStyle?: ViewStyle;
 }
 
-export default function singleVideo({ image, description, date, containerStyle }: SingleVideoProps) {
+export function SingleVideo({ image, description, date, containerStyle }: SingleVideoProps) {
   return (
     <ThemedView style={[{ flexDirection: 'column', gap: 8 }, containerStyle]}>
       <Image
