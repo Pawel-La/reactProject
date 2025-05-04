@@ -4,7 +4,7 @@ import SearchBar from '@/components/SearchBar';
 import { ThemedView } from '@/components/ThemedView';
 import { VideoSection } from '@/components/VideoSection';
 import { useRouter } from 'expo-router';
-import { Image, ScrollView, StyleSheet } from 'react-native';
+import { Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function HomeScreen() {
   const [searchText, setSearchText] = useState(''); 
@@ -32,12 +32,16 @@ export default function HomeScreen() {
 
   const router = useRouter();
 
-  const handlePress = () => {
+  const handleSearchBarPress = () => {
     searchText &&
       router.push({
         pathname: '/search',
         params: { search_query: searchText },
       });
+  };
+
+  const handleSettingsPress = () => {
+    router.push(`/settings`);
   };
 
   return (
@@ -46,13 +50,15 @@ export default function HomeScreen() {
         <SearchBar
             value={searchText}
             onChangeText={setSearchText}
-            onBlur={handlePress}
+            onBlur={handleSearchBarPress}
             placeholder="Search for videos"
         />
         
-        <Image
-            source={require('@/assets/recruitment_task_assets/icons/settings-icon.svg')}
-        />
+        <TouchableOpacity onPress={handleSettingsPress}>
+          <Image
+              source={require('@/assets/recruitment_task_assets/icons/settings-icon.svg')}
+          />
+        </TouchableOpacity>
       </ThemedView>
 
       <VideoSection
